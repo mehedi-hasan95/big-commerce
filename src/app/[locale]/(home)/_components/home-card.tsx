@@ -33,7 +33,7 @@ export const HomeCard = async () => {
     <div className="flex flex-wrap gap-5 max-w-screen-lg mx-auto">
       {data.map((item) => (
         <div
-          className="flex max-w-96 bg-slate-100 p-5 rounded-md"
+          className="flex max-w-96 bg-slate-100 dark:bg-slate-700 p-5 rounded-md"
           key={item.id}
         >
           <div className="flex gap-4">

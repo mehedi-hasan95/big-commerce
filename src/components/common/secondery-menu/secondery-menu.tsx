@@ -5,13 +5,14 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LanguageSwitcher } from "./language-switcher";
+import ThemeSwitcher from "../theme-toggle";
 
 export const SeconderyMenu = () => {
   const { onSetSection, section } = useNavigation();
   const pathName = usePathname();
   return (
     <div className="bg-gray-500">
-      <div className="container_this flex items-center">
+      <div className="container_this flex items-center gap-5">
         {SeconderyMenuConstants.map((menu) => (
           <Link
             key={menu.id}
@@ -29,6 +30,7 @@ export const SeconderyMenu = () => {
             {menu.title}
           </Link>
         ))}
+        <ThemeSwitcher />
         <LanguageSwitcher />
       </div>
     </div>
