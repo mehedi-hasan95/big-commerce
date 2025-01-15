@@ -4,6 +4,7 @@ import { useNavigation } from "@/hooks/navigation";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LanguageSwitcher } from "./language-switcher";
 
 export const SeconderyMenu = () => {
   const { onSetSection, section } = useNavigation();
@@ -24,6 +25,7 @@ export const SeconderyMenu = () => {
             {menu.title}
           </Link>
         ))}
+        <LanguageSwitcher />
       </div>
     </div>
   );
