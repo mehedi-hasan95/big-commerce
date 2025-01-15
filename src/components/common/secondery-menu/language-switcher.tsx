@@ -7,7 +7,6 @@ import {
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -15,16 +14,18 @@ import { useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { ChevronDownIcon } from "lucide-react";
 import { i18n } from "../../../../i18n-config";
+import Image from "next/image";
 export const LanguageSwitcher = () => {
   const { locales } = i18n;
   const locale = useLocale();
   const pathname = usePathname();
+  const country = locales.find((l) => l.code === locale)?.icon;
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="header-button h-[41px]">
         <div className="flex items-center gap-1">
           <span className="text-xl">
-            {locales.find((l) => l.code === locale)?.icon}
+            <Image src={country || "/usa.png"} alt="" height={24} width={24} />
           </span>
           {locale.toUpperCase().slice(0, 2)}
           <ChevronDownIcon />
@@ -40,7 +41,10 @@ export const LanguageSwitcher = () => {
                 href={pathname}
                 locale={c.code}
               >
-                <span className="text-lg">{c.icon}</span> {c.name}
+                <span className="text-lg">
+                  <Image src={c.icon} alt="" height={24} width={24} />
+                </span>{" "}
+                {c.name}
               </Link>
             </DropdownMenuRadioItem>
           ))}

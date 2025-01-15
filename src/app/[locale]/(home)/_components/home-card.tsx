@@ -13,19 +13,19 @@ export const HomeCard = async () => {
     {
       id: "2",
       icon: <Wallet />,
-      title: "Money Guarantee",
+      title: t("Money Guarantee"),
       desc: "7 Days Back",
     },
     {
       id: "3",
       icon: <Clock />,
-      title: "15 Days",
+      title: t("15 Days"),
       desc: "For free return",
     },
     {
       id: "4",
       icon: <KeySquare />,
-      title: "Payment",
+      title: t("Payment"),
       desc: "Secure system",
     },
   ];
